@@ -12,8 +12,8 @@ const variables = {
     black: '#000000',
   },
   overlayColor: {
-    white: 'background: rgba(255, 255, 255, 0.05);',
-    black: 'background: rgba(0, 0, 0, 0.05);'
+    white: 'rgba(255, 255, 255, 0.5);',
+    black: 'rgba(0, 0, 0, 0.05);',
   },
   fonts: {
     thin: 'Lato Thin',

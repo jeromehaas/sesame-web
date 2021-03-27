@@ -7,11 +7,18 @@ const GlobalStyle = createGlobalStyle`
     scrollbar-width: none;
     font-family: 'Lato Thin', 'sans-serif';
     outline: none;
+    margin: 0;
+    padding: 0;
   }
 
   *::-webkit-scrollbar {
     display: none;
     -webkit-appearance: none;
+}
+
+
+body {
+  overflow: hidden;
 }
 
 img {

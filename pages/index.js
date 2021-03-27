@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import { H1 } from 'components/Text/Title';
-import { P } from 'components/Text/Paragraph';
-import { ListItem } from 'components/Text/ListItem';
+import { H1 } from 'components/text/Title';
+import { P } from 'components/text/Paragraph';
+import { ListItem } from 'components/text/ListItem';
+import { Page } from 'components/layout/Page';
+import { Section } from 'components/layout/Section';
 
 export default function Home() {
   return (
@@ -10,6 +12,14 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="" />
       </Head>
+    <Page>
+      <Section direction={'left'}>
+        helo
+      </Section> 
+      <Section direction={'right'}>
+        bye  
+      </Section> 
+    </Page>
     </div>
   )
-}
+};
