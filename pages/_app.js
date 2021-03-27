@@ -1,5 +1,6 @@
 import React from 'react';
-import Variables from '../styles/Variables';
+import Variables from 'styles/Variables';
+import styled from 'styled-components';
 
 function MyApp({ Component, pageProps }) {
   return (
