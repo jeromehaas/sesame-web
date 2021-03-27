@@ -18,7 +18,7 @@ const variables = {
   fonts: {
     thin: 'Lato Thin',
     light: 'Lato Light',
-    medium: 'Lato Regular',
+    regular: 'Lato Regular',
     bold: 'Lato Bold',
   },
   metrics: {
@@ -27,6 +27,11 @@ const variables = {
     medium: '15px',
     large: '30px',
     extraLarge: '60px'
+  },
+  mediaQueries: {
+    mobile: '400px',
+    tablet: '1024px',
+    desktop: '1440px'
   }
 }
 
