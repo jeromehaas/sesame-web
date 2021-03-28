@@ -1,6 +1,6 @@
 import { redirect } from 'next/dist/next-server/server/api-utils';
 import styled, { css } from 'styled-components';
-import { P } from '../Text/Paragraph';
+import { P } from '../text/Paragraph';
 
 const StyledSection = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const StyledSectionWrapper = styled.div`
 `;
 
 const StyledSectionBackground = styled.div`
-    width: calc(100vw - ((100vw - 1440px) / 2));
+    width: calc(100vw - ((100vw - 1840px) / 2));
     height: 100%;
 
   ${({ direction }) => direction === 'right'
