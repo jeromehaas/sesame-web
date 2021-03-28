@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { P } from 'components/Text/Paragraph';
+import { P } from 'components/text/Paragraph';
 
 const ListItem = styled(P)`
   max-width: 200px;
