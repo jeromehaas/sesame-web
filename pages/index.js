@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="" />
+        <link rel="icon" href="favicon/favicon.png" />
       </Head>
     <Page>
       <Section direction={'left'}>
