@@ -8,7 +8,9 @@ const variables = {
     darkBlue: '#5A7184',
     green: '#36B37E',
     white: '#ffffff',
+    lightgrey: '#D9D9D9',
     grey: '#959EAD',
+    darkgrey: '#959595',
     black: '#000000',
   },
   overlayColor: {

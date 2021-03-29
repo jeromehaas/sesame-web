@@ -1,12 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from 'components/partials/Header';
+import Copyright from 'components/partials/Copyright';
 
-const Page = styled.main`
-  max-width: 1840px;
-  min-height: 100vh;
+const StyledPage = styled.div`
   margin: 0 auto;
-  /* padding: 0 90px; */
 `;
+
+const StyledPageContentWrapper = styled.main`
+  min-height: calc(100vh - (50px + 65px));
+`;
+
+const Page = ({ children }) => (
+  <StyledPage>
+    <Header />
+    <StyledPageContentWrapper>
+      {children}
+    </StyledPageContentWrapper>
+    <Copyright />
+  </StyledPage>
+)
 
 export {
   Page
