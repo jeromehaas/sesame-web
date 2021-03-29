@@ -6,6 +6,7 @@ import { ListItem } from 'components/text/ListItem';
 import { Page } from 'components/layout/Page';
 import { Section } from 'components/layout/Section';
 import { Hero } from 'components/sections/Hero';
+import { Advantages } from 'components/partials/Advantages';
 
 export default function Home() {
   return (
@@ -20,12 +21,7 @@ export default function Home() {
     <Page>
       <Fragment>
         <Hero />
-      <Section direction={'left'}>
-        helo
-      </Section> 
-      <Section direction={'right'}>
-        bye  
-      </Section> 
+        <Advantages /> 
       </Fragment>
     </Page>
     </div>
