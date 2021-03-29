@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Section } from 'components/layout/Section';
+import { H1 } from 'components/text/Title';
+import { space } from 'styled-system'
+import { P } from 'components/text/Paragraph';
 
+const Spacer = styled.div(space);
 
 interface Props { }
 
@@ -10,9 +14,10 @@ const StyledHero = styled.div`
 
   .illustration-wrapper {
     position: relative;
+    width: 700px;
 
     .illustration {
-      width: 700px;
+      width: 100%;
       margin: 0 auto;
       display: block;
     }
@@ -36,7 +41,7 @@ const StyledHero = styled.div`
       width: 100px;
       border-radius: 7.5px;
       box-shadow: -7.5px 7.5px 0 ${p => p.theme.overlayColor.red};
-      animation: 7.5s ease-in-out infinite heroHoverCard;
+      animation: 10.5s ease-in-out infinite heroHoverCard;
     }
 
     @keyframes heroHoverCard {
@@ -58,7 +63,7 @@ const StyledHero = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  bottom: 125px;
+  bottom: calc(100% - 400px);
   z-index: -5;
   background-color: ${p => p.theme.colors.lightgrey};
 }
@@ -75,6 +80,10 @@ const Hero: React.FunctionComponent<Props> = () => {
           <img className="card" src="/illustrations/il-card.svg" alt="Card" />
           <img className="total-user" src="/illustrations/il-total-user.svg" alt="Total User" />
         </div>
+        <Spacer mb={3} />
+        <H1 textAlign="center">Access management system for the 21th century</H1>
+        <Spacer mb={3} />
+        <P>Sesame is a non-profit  open source access management system for organisations. The main goal of sesame is to provide an easier way to give  the users of your organisationsto different rooms and areas of your organisation.  By using our mobile application, users can just scan their face  to authorize and to open doors. </P>
       </StyledHero>
     </Section>
   );

@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components';
 
-
-const sharedStyled = css`
+const sharedStyle = css`
   line-height: 1.25;
-  color: ${p => p.theme.blue}
+  color: ${p => p.theme.colors.blue};
+  text-align: ${p => p.textAlign ? p.textAlign : 'left'};
 `;
 
 const H1 = styled.h1`
+  ${sharedStyle};
   font-size: 70px;
+  font-family: ${p => p.theme.fonts.light};
 
   @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
     font-size: 50px;
@@ -19,6 +21,7 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
+  ${sharedStyle};
   font-size: 35px;
 
   @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
