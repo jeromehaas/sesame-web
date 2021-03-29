@@ -84,6 +84,7 @@ const Hero: React.FunctionComponent<Props> = () => {
         <H1 textAlign="center">Access management system for the 21th century</H1>
         <Spacer mb={3} />
         <P>Sesame is a non-profit  open source access management system for organisations. The main goal of sesame is to provide an easier way to give  the users of your organisationsto different rooms and areas of your organisation.  By using our mobile application, users can just scan their face  to authorize and to open doors. </P>
+        <Spacer mb={3} />
       </StyledHero>
     </Section>
   );
