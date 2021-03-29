@@ -14,10 +14,10 @@ const StyledSectionWrapper = styled.div`
 `;
 
 const StyledSectionBackground = styled.div`
-    width: calc(100vw - ((100vw - 1840px) / 2));
+    width: calc(100vw - 60px);
     height: 100%;
 
-  ${({ direction }) => direction === 'right'
+  /* ${({ direction }) => direction === 'right'
     && css`
         position: absolute;
         left: 0;
@@ -29,7 +29,7 @@ const StyledSectionBackground = styled.div`
         position: absolute;
         right: 0px;
         background-color: ${p => p.theme.overlayColor.black};
-      `}
+      `} */
 `;
 
 const StyledSectionContent = styled.div`

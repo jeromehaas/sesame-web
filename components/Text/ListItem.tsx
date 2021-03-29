@@ -7,7 +7,7 @@ const ListItem = styled(P)`
 
   &:before {
   content: " ";
-  background-image: url(icons/checkmark.svg);
+  background-image: url(icons/ic-checkmark.svg);
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 15px;
