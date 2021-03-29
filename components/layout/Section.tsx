@@ -36,7 +36,11 @@ const StyledSectionContent = styled.div`
     padding: 30px;
 `;
 
-const Section = ({ direction, children }) => (
+interface Props {
+  direction?: string;
+}
+
+const Section: React.FC<Props> = ({ direction, children }) => (
   <StyledSection>
     <StyledSectionWrapper >
       <StyledSectionBackground direction={direction} />

@@ -5,16 +5,33 @@ interface Props { }
 
 const StyledHeader = styled.header`
   width: 100%;
-  padding: 0 ${p => p.theme.metrics.medium};
-  
+  height: 85px;
+  display: block;
+
   .logo {
-    width: 150px;
-    margin: 0 auto;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    padding: 0 ${p => p.theme.metrics.medium};
+    background-color: ${p => p.theme.colors.lightgrey};
+
+    img {
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+
+  }
+
+  .placeholder {
+    height: 85px;
+    width: 100%;
     display: block;
-    height: 65px;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
   }
 
 `;
@@ -24,7 +41,10 @@ const Header: React.FunctionComponent<Props> = () => {
 
   return (
     <StyledHeader>
-      <img className="logo" src="/logos/logo.svg" alt="Sesame" />
+      <div className="logo">
+        <img src="/logos/logo.svg" alt="Sesame" />
+      </div>
+      <div className="placeholder"></div>
     </StyledHeader>
   );
 

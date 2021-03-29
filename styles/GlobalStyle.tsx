@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img {
