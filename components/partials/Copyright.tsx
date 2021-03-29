@@ -16,15 +16,10 @@ const StyledCopyright = styled.small`
   justify-content: center;
 `;
 
-const Copyright: React.FunctionComponent<Props> = () => {
-
-
-  return (
+const Copyright: React.FunctionComponent<Props> = () => (
     <StyledCopyright>
       Sesame © 2021 All Rights Reserved
     </StyledCopyright>
   );
-
-}
 
 export default Copyright;

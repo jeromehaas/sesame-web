@@ -5,6 +5,7 @@ import Copyright from 'components/partials/Copyright';
 
 const StyledPage = styled.div`
   margin: 0 auto;
+  overflow: scroll;
 `;
 
 const StyledPageContentWrapper = styled.main`
