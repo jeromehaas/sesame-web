@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const sharedStyles = css`
   color: ${p => p.color ? p.color : p.theme.colors.blue};
   line-height: 2;
-  font-size: 18px;
+  font-size: 16px;
   text-align: ${p => p.textAlign ? p.textAlign : 'left'};
   max-width: ${p => p.maxWidth ? p.maxWidth : null};
   

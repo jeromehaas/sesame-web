@@ -31,6 +31,7 @@ const variables = {
     large: '30px',
     extraLarge: '60px'
   },
+  space: [0, 7.5, 15, 30, 60],
   mediaQueries: {
     mobile: '400px',
     tablet: '1024px',
