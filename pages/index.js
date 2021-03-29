@@ -1,3 +1,4 @@
+import React, {Fragment} from 'react';
 import Head from 'next/head'
 import { H1 } from 'components/text/Title';
 import { P } from 'components/text/Paragraph';
@@ -16,12 +17,14 @@ export default function Home() {
         <link rel="icon" href="favicon/favicon.png" />
       </Head>
     <Page>
+      <Fragment>
       <Section direction={'left'}>
         helo
       </Section> 
       <Section direction={'right'}>
         bye  
       </Section> 
+      </Fragment>
     </Page>
     </div>
   )
