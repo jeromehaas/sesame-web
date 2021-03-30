@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 const sharedStyle = css`
   line-height: 1.25;
+  font-family: ${p => p.theme.fonts.light};
   color: ${p => p.theme.colors.blue};
   text-align: ${p => p.textAlign ? p.textAlign : 'left'};
 `;
@@ -9,7 +10,7 @@ const sharedStyle = css`
 const H1 = styled.h1`
   ${sharedStyle};
   font-size: 70px;
-  font-family: ${p => p.theme.fonts.light};
+
 
   @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
     font-size: 50px;

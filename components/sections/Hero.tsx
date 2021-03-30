@@ -15,6 +15,7 @@ const StyledHero = styled.div`
   .illustration-wrapper {
     position: relative;
     width: 700px;
+    margin: 0 auto;
 
     .illustration {
       width: 100%;
