@@ -11,7 +11,7 @@ const Spacer = styled.div(space);
 
 import styled from 'styled-components';
 
-const StyledFullyCustomizable = styled.div`
+const StyledCompleteControl = styled.div`
 
   ${Limiter} {
     display: flex;
@@ -32,48 +32,42 @@ const StyledFullyCustomizable = styled.div`
   }
 
   .text-content {
-    width: 50%;
+    width: 40%;
+    margin-left: 60px;
   }
 
   .illustration {
-    width: 50%;
+    width: 30%;
+    /* padding: 120px; */
+
   }
 
 `;
 
-const listItemData = [
-  { text: 'Define Groups' },
-  { text: 'Add areas and doors' },
-  { text: 'Customize accessible hours' },
-  { text: 'Activate / deactivate users' },
-  { text: 'Update and edit users' },
-]
-
 interface Props { }
 
-const FullyCustomizable: React.FunctionComponent<Props> = () => {
+const CompleteControl: React.FunctionComponent<Props> = () => {
 
   return (
     <Section>
-      <StyledFullyCustomizable>
-        <div className="overlay" />
+      <StyledCompleteControl>
+        <Spacer mb={4} />
         <Limiter>
+          <img className="illustration" src="/illustrations/il-complete-control.svg" alt="Customizable" />
           <div className="text-content">
             <Spacer mb={3} />
-            <H2>Fully Customizable</H2>
+            <H2>Complete Control</H2>
             <Spacer mb={2} />
-            <P maxWidth={'350px'}>The application is fully customizable and let’s you define all aspects of your access management. </P>
-            <Spacer mb={2} />
-            <ListItemTable data={listItemData} />
+            <P maxWidth={'350px'}>Sesame let’s you not just give your users access and define the rules of your access-management system.You also always have an overview of which person has accessed what door at which time. Also, get further informations by having a look at the logs which get created on every action. </P>
           </div>
-          <img className="illustration" src="/illustrations/il-fiully-customizable.svg" alt="Customizable" />
         </Limiter>
-      </StyledFullyCustomizable>
+        <Spacer mb={4} />
+      </StyledCompleteControl>
     </Section>
   );
 
 }
 
 export {
-  FullyCustomizable
+  CompleteControl
 };

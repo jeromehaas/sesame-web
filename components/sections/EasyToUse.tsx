@@ -11,7 +11,7 @@ const Spacer = styled.div(space);
 
 import styled from 'styled-components';
 
-const StyledFullyCustomizable = styled.div`
+const StyledEasyToUse = styled.div`
 
   ${Limiter} {
     display: flex;
@@ -24,9 +24,9 @@ const StyledFullyCustomizable = styled.div`
   .overlay {
     position: absolute;
     top: 0;
-    right: 60px;
-    left: 0;
-    bottom: calc(100% - 500px);
+    right: 0;
+    left: 60px;
+    bottom: calc(100% - 550px);
     z-index: -5;
     background-color: ${p => p.theme.colors.lightgrey};
   }
@@ -42,38 +42,39 @@ const StyledFullyCustomizable = styled.div`
 `;
 
 const listItemData = [
-  { text: 'Define Groups' },
-  { text: 'Add areas and doors' },
-  { text: 'Customize accessible hours' },
-  { text: 'Activate / deactivate users' },
-  { text: 'Update and edit users' },
+  { text: 'Intuitive' },
+  { text: 'Fast' },
+  { text: 'Cross plattform compatible' },
+  { text: 'Easy to onboard' },
+  { text: 'Mobile and tablet friendly' },
 ]
 
 interface Props { }
 
-const FullyCustomizable: React.FunctionComponent<Props> = () => {
+const EasyToUse: React.FunctionComponent<Props> = () => {
 
   return (
     <Section>
-      <StyledFullyCustomizable>
+      <StyledEasyToUse>
         <div className="overlay" />
         <Limiter>
           <div className="text-content">
             <Spacer mb={3} />
-            <H2>Fully Customizable</H2>
+            <H2>Easy to Use</H2>
             <Spacer mb={2} />
-            <P maxWidth={'350px'}>The application is fully customizable and let’s you define all aspects of your access management. </P>
+            <P maxWidth={'350px'}>The dashboard is intuitive and easy to use. Setting up our access managment system can be done within some hours and needs no prior knowledge to getting started with the admin dashboard.</P>
             <Spacer mb={2} />
             <ListItemTable data={listItemData} />
           </div>
-          <img className="illustration" src="/illustrations/il-fiully-customizable.svg" alt="Customizable" />
+          <img className="illustration" src="/illustrations/il-easy-to-use.svg" alt="Customizable" />
         </Limiter>
-      </StyledFullyCustomizable>
+        <Spacer mb={4} />
+      </StyledEasyToUse>
     </Section>
   );
 
 }
 
 export {
-  FullyCustomizable
+  EasyToUse
 };

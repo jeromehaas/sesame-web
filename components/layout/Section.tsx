@@ -33,7 +33,7 @@ const StyledSectionBackground = styled.div`
 `;
 
 const StyledSectionContent = styled.div`
-    padding: 30px;
+    padding:  30px 120px 0 120px;
 `;
 
 interface Props {
