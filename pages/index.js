@@ -7,6 +7,7 @@ import { Page } from 'components/layout/Page';
 import { Section } from 'components/layout/Section';
 import { Hero } from 'components/sections/Hero';
 import { Advantages } from 'components/partials/Advantages';
+import { FullyCustomizable } from 'components/sections/FullyCustomizable';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Fragment>
         <Hero />
         <Advantages /> 
+        <FullyCustomizable />
       </Fragment>
     </Page>
     </div>

@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import { P } from 'components/text/Paragraph';
 
 const ListItem = styled(P)`
-  max-width: 200px;
-  font-family: ${p => p.bold ? p.theme.fonts.regular : p.theme.fonts.thin};
+  font-family: ${p => p.theme.fonts.regular};
+  width: 50%;
 
   &:before {
   content: " ";
   background-image: url(icons/ic-checkmark.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 15px;
-  height: 12.5px;
-  width: 12.5px;
+  margin: 0 15px;
+  height: 15px;
+  width: 15px;
   display: inline-block;
 }
 `;
