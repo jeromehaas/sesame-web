@@ -8,6 +8,9 @@ import { Section } from 'components/layout/Section';
 import { Hero } from 'components/sections/Hero';
 import { Advantages } from 'components/partials/Advantages';
 import { FullyCustomizable } from 'components/sections/FullyCustomizable';
+import { CompleteControl } from 'components/sections/CompleteControl';
+import { EasyToUse } from 'components/sections/EasyToUse';
+
 
 export default function Home() {
   return (
@@ -24,6 +27,8 @@ export default function Home() {
         <Hero />
         <Advantages /> 
         <FullyCustomizable />
+        <CompleteControl />
+        <EasyToUse />
       </Fragment>
     </Page>
     </div>
