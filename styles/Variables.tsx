@@ -33,8 +33,8 @@ const variables = {
   },
   space: [0, 7.5, 15, 30, 60],
   mediaQueries: {
-    mobile: '400px',
-    tablet: '1024px',
+    mobile: '450px',
+    tablet: '900px',
     desktop: '1440px'
   }
 }

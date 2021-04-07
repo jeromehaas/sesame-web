@@ -12,21 +12,37 @@ const advantagesData = [
 
 const StyledAdvantages = styled.div`
 
-  .advantages-wrapper {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   .advantage {
-    max-width: 200px;
-    margin: 0 30px;
+    width: 25%;
+    padding: 30px 30px;
   }
 
   .icon {
     margin: 0 auto;
     display: block;
     margin-bottom: 15px;
+    width: 90px;
   }
+
+  @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
+    .advantage {
+      width: 50%;
+    }
+
+  }
+
+  @media (max-width: 570px) {
+    .advantage {
+      width: 100%;
+      max-width: 250px;
+    }
+
+  }
+
 `;
 
 interface Props { }
@@ -36,14 +52,14 @@ const Advantages: React.FunctionComponent<Props> = () => {
   return (
     <Section>
       <StyledAdvantages>
-        <div className="advantages-wrapper">
+
           {advantagesData.map((advantage, index) => (
             <div className="advantage" key={index}>
               <img className="icon" src={advantage.icon} alt={advantage.alt} />
               <P textAlign="center">{advantage.text}</P>
             </div>
           ))}
-        </div>
+
       </StyledAdvantages>
     </Section >
   );

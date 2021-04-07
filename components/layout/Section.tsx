@@ -3,51 +3,62 @@ import styled, { css } from 'styled-components';
 import { P } from '../text/Paragraph';
 
 const StyledSection = styled.div`
-  width: 100%;
-  position: relative;
-  /* padding: ${p => p.theme.metrics.large}; */
-`;
-
-const StyledSectionWrapper = styled.div`
     width: 100vw;
     height: 100%;
-`;
+    padding:  30px 60px 30px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: ${p => p.backgroundColor === "grey" ? p.theme.colors.lightgrey : null};
 
-const StyledSectionBackground = styled.div`
-    width: calc(100vw - 60px);
-    height: 100%;
+    .left, .right {
+      width: 50%;
+      padding: 30px;
+    }
 
-  /* ${({ direction }) => direction === 'right'
-    && css`
-        position: absolute;
-        left: 0;
-        background-color: ${p => p.theme.overlayColor.black};
+    .illustration {
+      max-width: 550px;
+    }
+
+    @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
+      justify-content: center;
+      align-items: center;
+
+      ${({ flexWrapDirection }) => flexWrapDirection === 'forwards'
+      && css`
+        flex-direction: column;
+      `} 
+
+      ${({ flexWrapDirection }) => flexWrapDirection === 'backwards'
+      && css`
+        flex-direction: column-reverse;
       `}
 
-  ${({ direction }) => direction === 'left'
-    && css`
-        position: absolute;
-        right: 0px;
-        background-color: ${p => p.theme.overlayColor.black};
-      `} */
-`;
+      .left, .right {
+        width: 100%;
+        padding: 30px;
+      }
 
-const StyledSectionContent = styled.div`
-    padding:  30px 120px 0 120px;
+    }
+
+    @media (max-width: ${p => p.theme.mediaQueries.mobile}) {
+      padding:  30px 30px 30px 30px;
+
+    }
+
 `;
 
 interface Props {
-  direction?: string;
+  backgroundColor?: string;
+  flexWrapDirection?: string;
 }
 
-const Section: React.FC<Props> = ({ direction, children }) => (
-  <StyledSection>
-    <StyledSectionWrapper >
-      <StyledSectionBackground direction={direction} />
-      <StyledSectionContent>
-        {children}
-      </StyledSectionContent>
-    </StyledSectionWrapper>
+const Section: React.FC<Props> = ({ children, backgroundColor, flexWrapDirection }) => (
+  <StyledSection backgroundColor={backgroundColor} flexWrapDirection={flexWrapDirection}>
+    {children}
   </StyledSection>
 )
 
