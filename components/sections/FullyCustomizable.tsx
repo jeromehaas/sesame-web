@@ -4,42 +4,9 @@ import { H2 } from 'components/text/Title';
 import { P } from 'components/text/Paragraph';
 import { space } from 'styled-system'
 import { ListItemTable } from 'components/partials/ListItemTable';
-import { Limiter } from 'components/layout/Limiter';
-
-
-const Spacer = styled.div(space);
-
 import styled from 'styled-components';
 
-const StyledFullyCustomizable = styled.div`
-
-  ${Limiter} {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    margin: 0 auto;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    right: 60px;
-    left: 0;
-    bottom: calc(100% - 500px);
-    z-index: -5;
-    background-color: ${p => p.theme.colors.lightgrey};
-  }
-
-  .text-content {
-    width: 50%;
-  }
-
-  .illustration {
-    width: 50%;
-  }
-
-`;
+const Spacer = styled.div(space);
 
 const listItemData = [
   { text: 'Define Groups' },
@@ -47,28 +14,22 @@ const listItemData = [
   { text: 'Customize accessible hours' },
   { text: 'Activate / deactivate users' },
   { text: 'Update and edit users' },
-]
+];
 
 interface Props { }
 
 const FullyCustomizable: React.FunctionComponent<Props> = () => {
 
   return (
-    <Section>
-      <StyledFullyCustomizable>
-        <div className="overlay" />
-        <Limiter>
-          <div className="text-content">
-            <Spacer mb={3} />
+    <Section backgroundColor="grey" flexWrapDirection="forwards">
+      <div className="left">
             <H2>Fully Customizable</H2>
             <Spacer mb={2} />
             <P maxWidth={'350px'}>The application is fully customizable and let’s you define all aspects of your access management. </P>
             <Spacer mb={2} />
             <ListItemTable data={listItemData} />
           </div>
-          <img className="illustration" src="/illustrations/il-fiully-customizable.svg" alt="Customizable" />
-        </Limiter>
-      </StyledFullyCustomizable>
+      <img className="right illustration" src="/illustrations/il-fiully-customizable.svg" alt="Customizable" />
     </Section>
   );
 

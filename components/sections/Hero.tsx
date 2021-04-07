@@ -14,43 +14,124 @@ const StyledHero = styled.div`
 
   .illustration-wrapper {
     position: relative;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     margin: 0 auto;
+  }
 
-    .illustration {
-      width: 100%;
-      margin: 0 auto;
-      display: block;
+  .illustration {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: calc(100% - 400px);
+    z-index: -5;
+    background-color: ${p => p.theme.colors.lightgrey};
+  }
+
+  .card {
+    position: absolute;
+    left: 40%;
+    bottom: 30px;
+    width: 100px;
+    border-radius: 7.5px;
+    box-shadow: -7.5px 7.5px 0 ${p => p.theme.overlayColor.red};
+    animation: 7.5s ease-in-out -0.5s infinite heroHoverTotalUser;
+  }
+
+  .total-user {
+    position: absolute;
+    right: 20%;
+    top: 125px;
+    width: 100px;
+    border-radius: 7.5px;
+    box-shadow: -7.5px 7.5px 0 ${p => p.theme.overlayColor.red};
+    animation: 10.5s ease-in-out infinite heroHoverCard;
+  }
+
+  @keyframes heroHoverCard {
+      0% { top: 125px; }
+      50% { top: 140px; }
+      100% { top: 125px; }
+  }
+  
+  @keyframes heroHoverTotalUser {
+      0% { bottom: 30px; }
+      50% { bottom: 45px; }
+      100% { bottom: 30px; }
+  }
+
+  @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
+
+    .card, .total-user {
+      width: 55px
     }
 
-
     .card {
-      position: absolute;
       left: 40%;
       bottom: 30px;
-      width: 100px;
-      border-radius: 7.5px;
-      box-shadow: -7.5px 7.5px 0 ${p => p.theme.overlayColor.red};
-      animation: 7.5s ease-in-out -0.5s infinite heroHoverTotalUser;
-
     }
 
     .total-user {
-      position: absolute;
       right: 20%;
-      top: 125px;
-      width: 100px;
-      border-radius: 7.5px;
-      box-shadow: -7.5px 7.5px 0 ${p => p.theme.overlayColor.red};
-      animation: 10.5s ease-in-out infinite heroHoverCard;
+      top: 65px;
     }
 
     @keyframes heroHoverCard {
-        0% { top: 125px; }
-        50% { top: 140px; }
-        100% { top: 125px; }
+      0% { top: 65px; }
+      50% { top: 80px; }
+      100% { top: 65px; }
     }
-    
+
+    @keyframes heroHoverTotalUser {
+        0% { bottom: 30px; }
+        50% { bottom: 45px; }
+        100% { bottom: 30px; }
+    }
+
+  }
+  @media (max-width: 600px) {
+
+    .overlay {
+      bottom: calc(100% - 315px);
+    }
+
+  }
+
+  @media (max-width: ${p => p.theme.mediaQueries.mobile}) {
+
+    .overlay {
+      bottom: calc(100% - 290px);
+    }
+
+    .card, .total-user {
+      width: 35px;
+      box-shadow: -5px 5px 0 ${p => p.theme.overlayColor.red};
+    }
+
+    .card {
+      left: 40%;
+      bottom: 30px;
+    }
+
+    .total-user {
+      right: 10%;
+      top: 65px;
+    }
+
+    @keyframes heroHoverCard {
+      0% { top: 35px; }
+      50% { top: 50px; }
+      100% { top: 35px; }
+    }
+
     @keyframes heroHoverTotalUser {
         0% { bottom: 30px; }
         50% { bottom: 45px; }
@@ -59,15 +140,18 @@ const StyledHero = styled.div`
 
   }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: calc(100% - 400px);
-  z-index: -5;
-  background-color: ${p => p.theme.colors.lightgrey};
-}
+  @media (max-width: 340px) {
+
+    .overlay {
+      bottom: calc(100% - 250px);
+    }
+
+    .card, .total-user {
+      display: none;
+    }
+
+  }
+
 `;
 
 const Hero: React.FunctionComponent<Props> = () => {
