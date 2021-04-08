@@ -26,6 +26,11 @@ img {
   -webkit-user-select: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
   @font-face{
     font-family:"Lato Thin";
     src: 
