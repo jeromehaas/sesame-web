@@ -8,9 +8,8 @@ const StyledListItemTable = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
-  ${P} {
-    font-family: ${p => p.theme.fonts.regular};
-    margin-left: 10px
+  img {
+    margin-right: 10px;
   }
 `;
 
@@ -34,7 +33,7 @@ const ListItemTable: React.FunctionComponent<Props> = ({ data }) => {
             <tbody>
               <tr>
                 <td><img src="/icons/ic-checkmark.svg" alt="Checkmark" /></td>
-                <td><P>{item.text}</P></td>
+                <td><P fontWeight="bold">{item.text}</P></td>
               </tr>
             </tbody>
           </Fragment>

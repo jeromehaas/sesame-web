@@ -1,8 +1,28 @@
 import { redirect } from 'next/dist/next-server/server/api-utils';
 import styled, { css } from 'styled-components';
-import { P } from '../text/Paragraph';
+
+const getColor = ({ theme, backgroundColor }) => {
+
+  switch (backgroundColor) {
+    case 'red':
+      return css`
+        background-color: ${theme.colors.red};
+      `;
+    case 'grey':
+      return css`
+        background-color: ${theme.colors.lightgrey};
+      `;
+    default:
+      return css`
+        background-color: ${theme.colors.white};
+      `;
+  }
+
+};
+
 
 const StyledSection = styled.div`
+    position: relative;
     width: 100vw;
     height: 100%;
     padding:  30px 60px 30px 60px;
@@ -12,7 +32,8 @@ const StyledSection = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: ${p => p.backgroundColor === "grey" ? p.theme.colors.lightgrey : null};
+    overflow: hidden;
+    ${getColor}
 
     .left, .right {
       width: 50%;
