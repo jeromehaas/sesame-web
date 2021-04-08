@@ -10,6 +10,7 @@ const sharedStyle = css`
 const H1 = styled.h1`
   ${sharedStyle};
   font-size: 70px;
+  font-family: ${p => p.theme.fonts.light};
 
 
   @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
@@ -23,6 +24,7 @@ const H1 = styled.h1`
 
 const H2 = styled.h2`
   ${sharedStyle};
+  font-family: ${p => p.theme.fonts.light};
   font-size: 35px;
 
   @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
@@ -34,8 +36,23 @@ const H2 = styled.h2`
   }
 `;
 
+const H3 = styled.h2`
+  ${sharedStyle};
+  font-family: ${p => p.theme.fonts.regular};
+  font-size: 25px;
+
+  @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${p => p.theme.mediaQueries.mobile}) {
+    font-size: 25px;
+  }
+`;
+
 export {
   H1,
-  H2
+  H2,
+  H3
 }
 
