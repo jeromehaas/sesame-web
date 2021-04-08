@@ -10,7 +10,7 @@ import { Advantages } from 'components/partials/Advantages';
 import { FullyCustomizable } from 'components/sections/FullyCustomizable';
 import { CompleteControl } from 'components/sections/CompleteControl';
 import { EasyToUse } from 'components/sections/EasyToUse';
-
+import { Newsletter } from 'components/sections/Newsletter';
 
 export default function Home() {
   return (
@@ -29,6 +29,7 @@ export default function Home() {
         <FullyCustomizable />
         <CompleteControl />
         <EasyToUse />
+        <Newsletter />
       </Fragment>
     </Page>
     </div>
