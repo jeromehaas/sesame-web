@@ -36,34 +36,33 @@ const StyledForm = styled.form`
   .message { grid-area: message; }
   .submit { grid-area: submit; }
 
-    label {
-      display: block;
-      font-family: ${p => p.theme.fonts.regular};
-      margin-bottom: ${p => p.theme.metrics.small};
-      color: ${p => p.theme.colors.blue};
-    }
+  label {
+    display: block;
+    font-family: ${p => p.theme.fonts.regular};
+    margin-bottom: ${p => p.theme.metrics.small};
+    color: ${p => p.theme.colors.blue};
+  }
 
-    input, select, textarea, select {
-      width: 100%;
-      height: 30px;
-      border: none;
-      outline: none;
-      border: 1px solid ${p => p.theme.colors.lightgrey};
-      border-radius: 5px;
-      padding: ${p => p.theme.metrics.small};
-    }
+  input, select, textarea, select {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border: 1px solid ${p => p.theme.colors.lightgrey};
+    border-radius: 5px;
+    padding: ${p => p.theme.metrics.small};
+  }
 
-    select {
-      appearance: none;
-      background: url('/icons/ic-arrow-down.svg') 96% / 15% no-repeat #FFF;
-      background-size: 15px;
-    };
+  select {
+    appearance: none;
+    background: url('/icons/ic-arrow-down.svg') 96% / 15% no-repeat #FFF;
+    background-size: 15px;
+  };
 
-    textarea {
-      height: 85px;
-      resize: none;
-    }
-
+  textarea {
+    height: 85px;
+    resize: none;
+  }
 
   input[type="submit"] {
     background-color: ${p => p.theme.colors.black};
@@ -76,12 +75,25 @@ const StyledForm = styled.form`
     height: 100%;
   }
 
+  @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr 50px;
+    gap: 15px 15px;
+    grid-template-areas:
+    "firstname"
+    "lastname"
+    "email"
+    "role"
+    "message"
+    "submit";
+  }
+
 `;
 
 const ContactForm: React.FunctionComponent<Props> = () => {
 
   return (
-    <Section backgroundColor="grey">
+    <Section backgroundColor="grey" flexWrapDirection="forwards">
       <div className="left">
         <H2>Looking for contributors</H2>
         <Spacer mb={2} />

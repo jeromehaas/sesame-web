@@ -37,7 +37,14 @@ const StyledSection = styled.div`
 
     .left, .right {
       width: 50%;
-      padding: 30px;
+    }
+
+    .left {
+      padding-right: 30px;
+    }
+
+    .right {
+      padding-left: 30px;
     }
 
     .illustration {
@@ -47,6 +54,7 @@ const StyledSection = styled.div`
     @media (max-width: ${p => p.theme.mediaQueries.tablet}) {
       justify-content: center;
       align-items: center;
+      padding:  30px;
 
       ${({ flexWrapDirection }) => flexWrapDirection === 'forwards'
       && css`
@@ -60,7 +68,7 @@ const StyledSection = styled.div`
 
       .left, .right {
         width: 100%;
-        padding: 30px;
+        padding: 0 0 60px 0;
       }
 
     }

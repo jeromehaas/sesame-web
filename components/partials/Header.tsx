@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Anchor } from 'components/text/Link';
 
 interface Props { }
 
@@ -41,10 +42,12 @@ const Header: React.FunctionComponent<Props> = () => {
 
   return (
     <StyledHeader>
+      <Anchor target="/">
       <div className="logo">
         <img src="/logos/logo.svg" alt="Sesame" />
       </div>
       <div className="placeholder"></div>
+      </Anchor>
     </StyledHeader>
   );
 

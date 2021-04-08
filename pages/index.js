@@ -12,10 +12,11 @@ import { CompleteControl } from 'components/sections/CompleteControl';
 import { EasyToUse } from 'components/sections/EasyToUse';
 import { Newsletter } from 'components/sections/Newsletter';
 import { ContactForm } from 'components/sections/ContactForm';
+import { Footer } from 'components/partials/Footer';
 
 export default function Home() {
   return (
-    <div>
+    <Fragment>
       <Head>
         <title>Sesame</title>
         <meta name="description" content="Access management system for the 21th century"></meta>
@@ -24,7 +25,7 @@ export default function Home() {
         <link rel="icon" href="favicon/favicon.png" />
       </Head>
     <Page>
-      <Fragment>
+    
         <Hero />
         <Advantages /> 
         <FullyCustomizable />
@@ -32,8 +33,9 @@ export default function Home() {
         <EasyToUse />
         <Newsletter />
         <ContactForm />
-      </Fragment>
+        <Footer />
+
     </Page>
-    </div>
+    </Fragment>
   )
 };
