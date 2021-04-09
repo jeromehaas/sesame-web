@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from 'components/partials/Header';
 import Copyright from 'components/partials/Copyright';
 
+
 const StyledPage = styled.div`
   margin: 0 auto;
   overflow: scroll;
@@ -15,7 +16,7 @@ const StyledPageContentWrapper = styled.main`
 const Page = ({ children }) => (
   <StyledPage>
     <Header />
-    <StyledPageContentWrapper>
+       <StyledPageContentWrapper>
       {children}
     </StyledPageContentWrapper>
     <Copyright />
