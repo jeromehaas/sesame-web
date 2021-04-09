@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Anchor } from 'components/text/Link';
+import ProgressBar from "react-scroll-progress-bar";
 
 interface Props { }
 
@@ -41,14 +42,17 @@ const Header: React.FunctionComponent<Props> = () => {
 
 
   return (
+    <>
     <StyledHeader>
       <Anchor target="/">
       <div className="logo">
         <img src="/logos/logo.svg" alt="Sesame" />
       </div>
+          <ProgressBar bgcolor='#B00E23' height="2px" />
         <div className="placeholder" />
       </Anchor>
     </StyledHeader>
+    </>
   );
 
 }

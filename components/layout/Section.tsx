@@ -1,5 +1,6 @@
 import { redirect } from 'next/dist/next-server/server/api-utils';
 import styled, { css } from 'styled-components';
+import { Fade } from "react-awesome-reveal";
 
 const getColor = ({ theme, backgroundColor }) => {
 
@@ -81,9 +82,12 @@ interface Props {
 }
 
 const Section: React.FC<Props> = ({ children, backgroundColor, flexWrapDirection }) => (
+
+  <Fade triggerOnce={true} duration={1500} fraction={0.15}>
   <StyledSection backgroundColor={backgroundColor} flexWrapDirection={flexWrapDirection}>
-    {children}
+      {children}
   </StyledSection>
+  </Fade>
 )
 
 export {
