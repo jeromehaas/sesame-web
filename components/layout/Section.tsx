@@ -25,7 +25,7 @@ const StyledSection = styled.div`
     position: relative;
     width: 100vw;
     height: 100%;
-    padding:  30px 60px 30px 60px;
+    padding:  90px 60px 90px 60px;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
