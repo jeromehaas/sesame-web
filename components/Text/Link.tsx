@@ -8,18 +8,18 @@ interface Props {
 }
 
 const StyledAnchor = styled.a`
-  color: red;
+  line-height: 2;
+  font-size: 16px;
+  color: ${p => p.theme.colors.blue};
+  cursor: pointer;
 `;
 
 const Anchor: React.FunctionComponent<Props> = ({ children, target }) => {
 
-
   return (
     <Link href={target}>
       <StyledAnchor>
-        <P>
-          {children}
-        </P>
+        {children}
       </StyledAnchor>
     </Link>
   );

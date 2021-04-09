@@ -100,6 +100,13 @@ const ContactForm: React.FunctionComponent<Props> = () => {
         <P>Do you want to contribute our accesss management system? Great! We are always looking for motivated contributors which are motivated to push our access management system to the next level. Drop us a line via the contact form or contact us via email or phone.</P>
         <Spacer mb={2} />
         <StyledTable>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
           <tr>
             <td><P>Tel:</P></td>
             <td><a href="tel:+41795129016"><P>+41 79 512  90 16 </P></a></td>
@@ -108,6 +115,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
             <td><P>E-Mail:</P></td>
             <td><a href="mailto:info@sesame-ai.tech"><P>info@sesame-ai.tech</P></a></td>
           </tr>
+          </tbody>
         </StyledTable>
       </div>
       <div className="right">
@@ -127,6 +135,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
           <div className="input-field role">
             <label htmlFor="role">In which role would you like to contribute?</label>
             <select>
+              <option selected disabled>Please choose a role</option>
               <option value="Frontend">Frontend</option>
               <option value="Backend">Backend</option>
               <option value="Fullstack">Fullstack</option>

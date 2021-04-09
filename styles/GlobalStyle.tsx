@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
 }
 
+*::selection {
+    background-color: rgba(176, 14, 35, 0.1);
+}
+
 
 body {
   /* overflow: hidden; */
