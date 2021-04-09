@@ -135,6 +135,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
           <div className="input-field role">
             <label htmlFor="role">In which role would you like to contribute?</label>
             <select>
+              <option selected disabled>Please choose a role</option>
               <option value="Frontend">Frontend</option>
               <option value="Backend">Backend</option>
               <option value="Fullstack">Fullstack</option>

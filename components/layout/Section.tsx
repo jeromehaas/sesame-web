@@ -73,11 +73,6 @@ const StyledSection = styled.div`
 
     }
 
-    @media (max-width: ${p => p.theme.mediaQueries.mobile}) {
-      padding:  30px 30px 30px 30px;
-
-    }
-
 `;
 
 interface Props {
