@@ -46,7 +46,7 @@ const Header: React.FunctionComponent<Props> = () => {
       <div className="logo">
         <img src="/logos/logo.svg" alt="Sesame" />
       </div>
-      <div className="placeholder"></div>
+        <div className="placeholder" />
       </Anchor>
     </StyledHeader>
   );
