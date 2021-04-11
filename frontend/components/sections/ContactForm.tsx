@@ -50,7 +50,7 @@ const StyledForm = styled.form`
     outline: none;
     border: 1px solid ${p => p.theme.colors.lightgrey};
     border-radius: 5px;
-    padding: ${p => p.theme.metrics.small};
+    padding: ${p => p.theme.metrics.medium} ${p => p.theme.metrics.small} ;
   }
 
   select {

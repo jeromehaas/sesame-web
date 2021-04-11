@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
+    cursor: url('/cursor/arrow.svg') 15 15, auto !important;
+
   }
 
   *::-webkit-scrollbar {
@@ -19,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
 *::selection {
     background-color: rgba(176, 14, 35, 0.1);
 }
-
 
 body {
   /* overflow: hidden; */
