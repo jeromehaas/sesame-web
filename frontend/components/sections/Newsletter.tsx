@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section } from 'components/layout/Section';
 import { P } from 'components/text/Paragraph';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
 const Spacer = styled.div(space);
-
-interface Props { }
 
 const NewsletterForm = styled.form`
   display: flex;
@@ -124,28 +122,63 @@ const CircleRight = styled.img`
       100% {transform: rotate(0deg);}
   }
 
-
 `;
 
 const greeter = (event) => {
   event.preventDefault();
-  console.log('hello submit');
+  console.log(event.target.value);
 }
 
 
+interface Props { }
+
 const Newsletter: React.FunctionComponent<Props> = () => {
+  
+  const [newsletterForm, setNewsletterForm] = useState({
+    sended: false,
+    email: ''
+  })
+
+  const handleNewsletterFormEmail = (event) => {
+    setNewsletterForm({
+      sended: false,
+      email: event.target.value
+    });
+  };
+
+  const handleNewsletterFormSubmit = (event) => {
+    event.preventDefault();
+    try {
+      fetch('https://api.sesame-ai.tech/newsletterSubscriptions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          'email': newsletterForm.email
+        })
+      })
+      setNewsletterForm({
+        sended: true,
+        email: ''
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Section backgroundColor="red">
       <CircleLeft src="/shapes/sh-circle.svg" alt="Circle" />
       <CircleRight src="/shapes/sh-circle.svg" alt="Circle" />
-      <NewsletterForm onSubmit={(event) => greeter(event)}>
+      <NewsletterForm onSubmit={(event) => handleNewsletterFormSubmit(event)}>
         <P color="white" fontWeight="bold" textAlign="center">Input your email into form below to get updates from us.</P>
         <Spacer mb={2} />
         <div className="input-fields">
           <div className="input-field">
             <img src="/icons/ic-email.svg" alt="Email" />
-            <input type="email" placeholder="Your Email" />
+            <input type="email" placeholder="Your Email" value={newsletterForm.email} onChange={(event) => handleNewsletterFormEmail(event)} />
           </div>
           <div className="submit-button">
             <input type="submit" />
