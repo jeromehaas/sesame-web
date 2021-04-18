@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     scrollbar-width: none;
-    font-family: 'Lato Thin', 'sans-serif';
+    font-family: 'Lato Light', 'sans-serif';
     outline: none;
     margin: 0;
     padding: 0;
@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
 
 *::selection {
     background-color: rgba(176, 14, 35, 0.1);
+}
+
+input {
+    -webkit-appearance: none;
 }
 
 body {

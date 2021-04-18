@@ -25,7 +25,7 @@ const getFontWeight = ({ theme, fontWeight }) => {
       `;
     default:
       return css`
-       font-family: ${theme.fonts.thin};
+       font-family: ${theme.fonts.light};
       `;
   }
 };
