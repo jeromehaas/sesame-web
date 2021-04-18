@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section } from 'components/layout/Section';
 import { H2 } from 'components/text/Title';
 import { P } from 'components/text/Paragraph';
 import styled from 'styled-components';
 import { space } from 'styled-system';
+import * as EmailValidator from 'email-validator';
+import { toast } from "react-toastify";
 
 const Spacer = styled.div(space);
 
@@ -17,7 +19,7 @@ const StyledTable = styled.table`
 
 const StyledForm = styled.form`
   background-color: ${p => p.theme.colors.white};
-  padding: ${p => p.theme.metrics.medium};
+  padding: ${p => p.theme.metrics.large};
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr 50px;
@@ -45,7 +47,6 @@ const StyledForm = styled.form`
 
   input, select, textarea, select {
     width: 100%;
-    height: 30px;
     border: none;
     outline: none;
     border: 1px solid ${p => p.theme.colors.lightgrey};
@@ -92,8 +93,87 @@ const StyledForm = styled.form`
 
 const ContactForm: React.FunctionComponent<Props> = () => {
 
-  return (
-    <Section backgroundColor="grey" flexWrapDirection="forwards">
+  const [contactForm, setContactForm] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    role: '',
+    message: '',
+    sended: false
+  });
+
+  const handleContactFormFirstname = (event) => {
+    setContactForm({
+      ...contactForm,
+      firstname: event.target.value
+    });
+  };
+
+  const handleContactFormLastname = (event) => {
+    setContactForm({
+      ...contactForm,
+      lastname: event.target.value
+    });
+  };
+
+  const handleContactFormEmail = (event) => {
+    setContactForm({
+      ...contactForm,
+      email: event.target.value
+    });
+  };
+
+  const handleContactFormRole = (event) => {
+    setContactForm({
+      ...contactForm,
+      role: event.target.value
+    });
+  };
+
+  const handleContactFormMessage = (event) => {
+    setContactForm({
+      ...contactForm,
+      message: event.target.value
+    });
+  };
+
+  const handleContactFormSubmit = (event) => {
+    event.preventDefault();
+    if (contactForm.firstname && contactForm.lastname && contactForm.email && contactForm.role && contactForm.message) {
+      try {
+        fetch('https://api.sesame-ai.tech/contactformEntries', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            'firstname': contactForm.firstname,
+            'lastname': contactForm.lastname,
+            'email': contactForm.email,
+            'role': contactForm.role,
+            'message': contactForm.message
+          })
+        });
+        setContactForm({
+          firstname: '',
+          lastname: '',
+          email: '',
+          role: '',
+          message: '',
+          sended: true
+        });
+        toast.success('Thanks for your message! We will get in touch with you soon...')
+      } catch (error) {
+        toast.error("Sorry, something went wrong... Please contact us directly via email!")
+      }
+    } else {
+      toast.error("Please fill out the blank fields!")
+    }
+  };
+
+    return (
+      <Section backgroundColor="grey" flexWrapDirection="forwards">
       <div className="left">
         <H2>Looking for contributors</H2>
         <Spacer mb={2} />
@@ -119,23 +199,22 @@ const ContactForm: React.FunctionComponent<Props> = () => {
         </StyledTable>
       </div>
       <div className="right">
-        <StyledForm>
+          <StyledForm onSubmit={(event) => handleContactFormSubmit(event)}>
           <div className="input-field firstname">
             <label htmlFor="firstname">Firstname</label>
-            <input type="text" />
+              <input type="text" value={contactForm.firstname} onChange={(event) => handleContactFormFirstname(event)} />
           </div>
           <div className="input-field lastname">
             <label htmlFor="lastname">Lastname</label>
-            <input type="text" />
+              <input type="text" value={contactForm.lastname} onChange={(event) => handleContactFormLastname(event)} />
           </div>
           <div className="input-field email">
-            <label htmlFor="lastname">Email</label>
-            <input type="email" />
+              <label htmlFor="email">Email</label>
+              <input type="email" value={contactForm.email} onChange={(event) => handleContactFormEmail(event)} />
           </div>
           <div className="input-field role">
             <label htmlFor="role">In which role would you like to contribute?</label>
-            <select>
-              <option selected disabled>Please choose a role</option>
+              <select value={contactForm.role} onChange={(event) => handleContactFormRole(event)}>
               <option value="Frontend">Frontend</option>
               <option value="Backend">Backend</option>
               <option value="Fullstack">Fullstack</option>
@@ -145,7 +224,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
           </div>
           <div className="input-field message">
             <label htmlFor="message">Message</label>
-            <textarea rows={2} />
+              <textarea rows={2} value={contactForm.message} onChange={(event) => handleContactFormMessage(event)} />
           </div>
           <input className="submit-button submit" type="submit" value="Submit" />
         </StyledForm>

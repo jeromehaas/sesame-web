@@ -126,12 +126,6 @@ const CircleRight = styled.img`
 
 `;
 
-const greeter = (event) => {
-  event.preventDefault();
-  console.log(event.target.value);
-}
-
-
 interface Props { }
 
 const Newsletter: React.FunctionComponent<Props> = () => {
@@ -139,7 +133,8 @@ const Newsletter: React.FunctionComponent<Props> = () => {
   const [newsletterForm, setNewsletterForm] = useState({
     sended: false,
     email: ''
-  })
+  });
+
 
   const handleNewsletterFormEmail = (event) => {
     setNewsletterForm({
