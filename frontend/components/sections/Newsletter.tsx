@@ -3,6 +3,7 @@ import { Section } from 'components/layout/Section';
 import { P } from 'components/text/Paragraph';
 import styled from 'styled-components';
 import { space } from 'styled-system';
+import * as EmailValidator from 'email-validator';
 
 const Spacer = styled.div(space);
 
@@ -141,30 +142,34 @@ const Newsletter: React.FunctionComponent<Props> = () => {
 
   const handleNewsletterFormEmail = (event) => {
     setNewsletterForm({
-      sended: false,
+      ...newsletterForm,
       email: event.target.value
     });
   };
 
   const handleNewsletterFormSubmit = (event) => {
     event.preventDefault();
-    try {
-      fetch('https://api.sesame-ai.tech/newsletterSubscriptions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          'email': newsletterForm.email
+    if (EmailValidator.validate(newsletterForm.email)) {
+      try {
+        fetch('https://api.sesame-ai.tech/newsletterSubscriptions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            'email': newsletterForm.email
+          })
         })
-      })
-      setNewsletterForm({
-        sended: true,
-        email: ''
-      })
-    } catch (error) {
-      console.log(error);
+        setNewsletterForm({
+          sended: true,
+          email: ''
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log('this is not an email addres');
     }
   }
 
