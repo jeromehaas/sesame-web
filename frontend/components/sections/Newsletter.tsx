@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section } from 'components/layout/Section';
 import { P } from 'components/text/Paragraph';
 import styled from 'styled-components';
 import { space } from 'styled-system';
+import * as EmailValidator from 'email-validator';
+import { toast } from "react-toastify";
 
 const Spacer = styled.div(space);
-
-interface Props { }
 
 const NewsletterForm = styled.form`
   display: flex;
@@ -25,16 +25,22 @@ const NewsletterForm = styled.form`
   }
 
   .input-field, .submit-button {
-    padding: 15px;
+    padding: 0px;
     border-radius: 5px;
     z-index: 5;
     margin-bottom: 15px;
+    height: 45px;
+    overflow: hidden;
   }
 
   .input-field {
     background-color: ${p => p.theme.colors.white};
     width: 300px;
     margin-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 15px;
@@ -59,7 +65,9 @@ const NewsletterForm = styled.form`
       outline: none;
       border: none;
       color: ${p => p.theme.colors.white};
-      width: 75px;
+      width: 100px;
+      height: 100%;
+
       font-family: ${p => p.theme.fonts.regular};
     }
     
@@ -116,22 +124,63 @@ const CircleRight = styled.img`
       100% {transform: rotate(0deg);}
   }
 
-
 `;
 
+interface Props { }
+
 const Newsletter: React.FunctionComponent<Props> = () => {
+  
+  const [newsletterForm, setNewsletterForm] = useState({
+    sended: false,
+    email: ''
+  });
+
+
+  const handleNewsletterFormEmail = (event) => {
+    setNewsletterForm({
+      ...newsletterForm,
+      email: event.target.value
+    });
+  };
+
+  const handleNewsletterFormSubmit = (event) => {
+    event.preventDefault();
+    if (EmailValidator.validate(newsletterForm.email)) {
+      try {
+        fetch('https://api.sesame-ai.tech/newsletterSubscriptions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            'email': newsletterForm.email
+          })
+        })
+        setNewsletterForm({
+          sended: true,
+          email: ''
+        });
+        toast.success("Thank you for subscribing to our newsletter!");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      toast.error("Please enter a valid email address!");;
+    }
+  }
 
   return (
     <Section backgroundColor="red">
       <CircleLeft src="/shapes/sh-circle.svg" alt="Circle" />
       <CircleRight src="/shapes/sh-circle.svg" alt="Circle" />
-      <NewsletterForm>
+      <NewsletterForm onSubmit={(event) => handleNewsletterFormSubmit(event)}>
         <P color="white" fontWeight="bold" textAlign="center">Input your email into form below to get updates from us.</P>
         <Spacer mb={2} />
         <div className="input-fields">
           <div className="input-field">
             <img src="/icons/ic-email.svg" alt="Email" />
-            <input type="email" placeholder="Your Email" />
+            <input type="email" placeholder="Your Email" value={newsletterForm.email} onChange={(event) => handleNewsletterFormEmail(event)} />
           </div>
           <div className="submit-button">
             <input type="submit" />
