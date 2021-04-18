@@ -4,6 +4,7 @@ import { P } from 'components/text/Paragraph';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 import * as EmailValidator from 'email-validator';
+import { toast } from "react-toastify";
 
 const Spacer = styled.div(space);
 
@@ -164,12 +165,13 @@ const Newsletter: React.FunctionComponent<Props> = () => {
         setNewsletterForm({
           sended: true,
           email: ''
-        })
+        });
+        toast.success("Thank you for subscribing to our newsletter!");
       } catch (error) {
         console.log(error);
       }
     } else {
-      console.log('this is not an email addres');
+      toast.error("Please enter a valid email address!");;
     }
   }
 
