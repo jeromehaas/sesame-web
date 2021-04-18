@@ -83,7 +83,7 @@ interface Props {
 
 const Section: React.FC<Props> = ({ children, backgroundColor, flexWrapDirection }) => (
 
-  <Fade triggerOnce={true} duration={1500} fraction={0.15}>
+  <Fade triggerOnce={true} duration={1500} fraction={0.02}>
   <StyledSection backgroundColor={backgroundColor} flexWrapDirection={flexWrapDirection}>
       {children}
   </StyledSection>

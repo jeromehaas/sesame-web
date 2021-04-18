@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: rgba(176, 14, 35, 0.1);
 }
 
-input {
+input, textarea {
     -webkit-appearance: none;
 }
 
