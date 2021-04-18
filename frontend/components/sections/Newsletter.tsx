@@ -25,16 +25,22 @@ const NewsletterForm = styled.form`
   }
 
   .input-field, .submit-button {
-    padding: 15px;
+    padding: 0px;
     border-radius: 5px;
     z-index: 5;
     margin-bottom: 15px;
+    height: 45px;
+    overflow: hidden;
   }
 
   .input-field {
     background-color: ${p => p.theme.colors.white};
     width: 300px;
     margin-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 15px;
@@ -59,7 +65,9 @@ const NewsletterForm = styled.form`
       outline: none;
       border: none;
       color: ${p => p.theme.colors.white};
-      width: 75px;
+      width: 100px;
+      height: 100%;
+
       font-family: ${p => p.theme.fonts.regular};
     }
     
@@ -119,13 +127,19 @@ const CircleRight = styled.img`
 
 `;
 
+const greeter = (event) => {
+  event.preventDefault();
+  console.log('hello submit');
+}
+
+
 const Newsletter: React.FunctionComponent<Props> = () => {
 
   return (
     <Section backgroundColor="red">
       <CircleLeft src="/shapes/sh-circle.svg" alt="Circle" />
       <CircleRight src="/shapes/sh-circle.svg" alt="Circle" />
-      <NewsletterForm>
+      <NewsletterForm onSubmit={(event) => greeter(event)}>
         <P color="white" fontWeight="bold" textAlign="center">Input your email into form below to get updates from us.</P>
         <Spacer mb={2} />
         <div className="input-fields">

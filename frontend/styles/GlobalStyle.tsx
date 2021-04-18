@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    cursor: url('/cursor/arrow.svg') 15 15, auto !important;
+    cursor: url('/cursor/arrow.svg') 0 0, auto !important;
 
   }
 
