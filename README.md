@@ -1,4 +1,4 @@
-<img src="./public/readme/hero.gif" width="700px" style="margin-bottom: 15px">
+<img src="./frontend/public/readme/hero.gif" width="700px" style="margin-bottom: 15px">
 
 ## Sesame Website
 
