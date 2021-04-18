@@ -97,7 +97,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
     firstname: '',
     lastname: '',
     email: '',
-    role: '',
+    role: 'Frontend',
     message: '',
     sended: false
   });
@@ -159,7 +159,7 @@ const ContactForm: React.FunctionComponent<Props> = () => {
           firstname: '',
           lastname: '',
           email: '',
-          role: '',
+          role: 'Frontend',
           message: '',
           sended: true
         });
